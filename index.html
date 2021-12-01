@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      font-size: 15px;
+      margin-top: 100px;
+      background-color: hsl(185, 41%, 84%);
+      font-family: 'Space Mono', monospace;
+    }
+    i {
+      position: absolute;
+    }
+    .icon{
+      padding: 10px;
+    }
+    input {
+      padding: 10px;
+      text-align: right;
+    }
+    output{
+      padding: 5px;
+      text-align: right;
+    }
+    .container{
+      margin:auto;
+      width:50%;
+      border-radius: 16px;
+      padding: 35px 35px 15px 35px;
+      background-color: hsl(0, 0%, 100%);
+    }
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .column{
+      float: left;
+      width: 50%
+    }
+    
+    .col-1-1,.col-1-2{
+      float: left;
+      width:50%;
+    }
+    .col-1{
+      margin-top: 30px;
+
+    }
+    
+    .col-1:after,.col-2:after,.btn-1:after,.btn-2:after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+    .container1{
+      background-color: hsl(183, 100%, 15%);
+      border-radius: 8px;
+      padding: 20px
+      
+    }
+    .btn-1{margin-bottom: 10px;}
+    .btn-1-1,.btn-2-2{width:33.33%;}
+
+    h1::before{
+      content: url("images/icon-dollar1.svg");
+      color: hsl(172, 67%, 45%);
+      
+    }
+    h1{
+      display: inline-block;
+      font-weight: 700;
+      font-size: 24px;
+
+    }
+    output{
+      color: hsl(172, 67%, 45%);
+    }
+    #reset{
+      width:100%;
+      margin-top: 30px;
+      text-align: center;
+      background-color: hsl(172, 67%, 45%);
+      border-radius: 3px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 17px;
+      color:hsl(183, 100%, 15%);
+
+    }
+    #reset:hover,.sub:hover{
+      background-color: hsl(185, 41%, 84%) ;
+    }
+    .sub:hover{color: hsl(183, 100%, 15%);}
+    .gap{
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    .btn{
+      width: 100%;
+    }
+    .sub{background-color:hsl(183, 100%, 15%); width: 95px; text-align: center;padding: 6px; border-radius: 3px; color: white;font-weight: 400;font-family: 'Space Mono', monospace; font-size: 20px; }
+    .sub-1{background-color: hsl(189, 41%, 97%); color: hsl(184, 14%, 56%);}
+    
+    .btn-1-1,.btn-2-2{
+      float: left;
+
+    }
+    strong{color:white; font-weight: 300;font-size: 15px;}
+    p{
+      color: hsl(185, 41%, 84%);
+      font-size: 15px;
+    }
+    img{
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+      margin-bottom: 30px;
+    }
+    input{
+      width:90%;
+      border:none;
+      background-color: hsl(189, 41%, 97%);
+      border-radius: 5px;
+      color:hsl(183, 100%, 15%);
+      font-family:'Space Mono', monospace; 
+      font-weight:700;
+      font-size: 20px;
+    }
+    input:onfocus{border-color:hsl(183, 100%, 15%); }
+    label{color: hsl(183, 100%, 15%); font-size: 12px; padding-bottom: 10px; font-weight: 700;}
+
+    @media screen and (max-width:800px){
+      .container{
+        width:85%;
+      }
+      .column{
+        float: none;
+      }
+      .container1,.container2{
+        width: 100%;
+      }
+      .sub{
+        width: 100%;
+        font-size: 15px;
+      }
+      input{
+        width:100%;
+        padding: 5px;
+      }
+      body{margin-top: 10px;}
+      .btn-1-1,.btn-2-2{padding: 5px}
+    }
+    .h2-text{text-align: right;}
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <img src="images/logo.svg">
+  <div class="row container">
+    <div class="column container2">
+      <div class="gap">
+        <label>Bill</label>
+        <div class="input">
+          <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="11" height="17"><path fill="#9EBBBD" d="M6.016 16.328v-1.464c1.232-.08 2.22-.444 2.964-1.092.744-.648 1.116-1.508 1.116-2.58v-.144c0-.992-.348-1.772-1.044-2.34-.696-.568-1.708-.932-3.036-1.092V4.184c.56.144 1.012.4 1.356.768.344.368.516.816.516 1.344v.288h1.824v-.432c0-.448-.088-.876-.264-1.284a3.783 3.783 0 00-.744-1.116A4.251 4.251 0 007.54 2.9a5.324 5.324 0 00-1.524-.492V.872H4.288V2.36a5.532 5.532 0 00-1.416.324c-.448.168-.84.392-1.176.672-.336.28-.604.616-.804 1.008-.2.392-.3.844-.3 1.356v.144c0 .96.316 1.708.948 2.244.632.536 1.548.884 2.748 1.044v3.912c-.704-.16-1.248-.472-1.632-.936-.384-.464-.576-1.08-.576-1.848v-.288H.256v.576c0 .464.08.924.24 1.38.16.456.404.88.732 1.272.328.392.744.728 1.248 1.008s1.108.476 1.812.588v1.512h1.728zM4.288 7.424c-.688-.128-1.164-.332-1.428-.612-.264-.28-.396-.644-.396-1.092 0-.464.176-.832.528-1.104.352-.272.784-.448 1.296-.528v3.336zm1.728 5.712V9.344c.768.128 1.328.328 1.68.6.352.272.528.688.528 1.248 0 .544-.196.984-.588 1.32-.392.336-.932.544-1.62.624z"/></svg></i>
+          <input id="input-1" type="text" name="text" onfocus="focus(this)">
+        </div>
+      </div>
+      <div class="gap">
+        <label>Select Tip %</label>
+        <div class="btn">
+          <div class="btn-1">
+            <div class="btn-1-1"><input type="submit" name="5%" value="5%" class="sub" onclick="calculation(5)"></div>
+            <div class="btn-1-1"><input type="submit" name="10%" value="10%" class="sub" onclick="calculation(10)"></div>
+            <div class="btn-1-1"><input type="submit" name="15%" value="15%" class="sub" onclick="calculation(15)"></div>
+          </div>
+          <div class="btn-2">
+            <div class="btn-2-2"><input type="submit" name="25%" value="25%" class="sub" onclick="calculation(25)"></div>
+            <div class="btn-2-2"><input type="submit" name="50%" value="50%" class="sub" onclick="calculation(50)"></div>
+            <div class="btn-2-2"><input type="submit" name="Custom" value="custom" class="sub sub-1" onclick="custom()" onkeydown="cont(this)"></div>
+          </div>
+          
+          
+        </div>
+      </div>
+      <div class="gap">
+        <label style="float: left;">Number of People</label>
+        <p style="padding-left: 200px" id="prompt" ></p>
+        <div class="input">
+          <i class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="16"><path fill="#9EBBBD" d="M9.573 7.729c.406 0 .784.07 1.126.209.342.14.639.33.881.569.232.227.438.503.614.82a5.1 5.1 0 01.407.949c.097.312.178.654.242 1.016.062.359.105.699.126 1.011.02.307.031.624.031.945 0 .836-.259 1.512-.768 2.01-.504.492-1.17.742-1.98.742H2.748c-.81 0-1.477-.25-1.98-.742C.259 14.76 0 14.084 0 13.248c0-.322.01-.64.032-.945.02-.312.063-.652.126-1.01.063-.363.144-.705.242-1.017.1-.323.238-.643.407-.948.176-.318.382-.594.613-.821.243-.238.54-.43.882-.57.342-.138.72-.208 1.125-.208.16 0 .313.067.61.265.183.123.397.264.636.421.204.134.48.259.822.372.333.11.671.167 1.005.167a3.19 3.19 0 001.006-.167c.341-.113.618-.238.822-.372l.636-.42c.296-.2.45-.266.61-.266zM6.598 0C7.63 0 8.522.38 9.252 1.129s1.1 1.666 1.1 2.724c0 1.06-.37 1.976-1.1 2.725-.73.75-1.623 1.13-2.654 1.13-1.03 0-1.924-.38-2.653-1.13-.73-.749-1.1-1.666-1.1-2.725 0-1.058.37-1.975 1.1-2.724C4.675.379 5.567 0 6.598 0z"/></svg></i>
+          <input id="input-2" type="text" name="num_of_people" value=0 onfocus="focus(this)">
+        </div>
+        
+      </div>
+      
+
+
+       
+    </div>
+    <div class="column container1">
+        <div class="col-1">
+          <div class="col-1-1">
+            <label><strong>Tip Amount</strong>
+            <p>/ person</p></label>
+          </div>
+          <div class="col-1-1 h2-text">
+            <output><h1 id="output-1">0.00</h1></output>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="col-1-2">
+            <label><strong>Total</strong>
+            <p>/ person</p></label>
+          </div>
+          <div class="col-1-2 h2-text">
+            <output ><h1 id="output-2">0.00</h1></output>
+          </div>
+        </div>
+
+      <input id="reset" type="RESET" name="RESET">  
+    </div>
+      
+    </div>
+  </div>
+
+
+  
+
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="wesoamo500.github.io">Abdul Manan Suleman</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
